@@ -2,9 +2,6 @@
 title: "Reproducible Research: Peer Assessment 1"
 author: "Bern Reyes"
 date: "Januay 2017"
-output: 
-html_document:
-keep_md: true
 ---
 
 
@@ -15,6 +12,11 @@ unzip(zipfile="activity.zip")
 data <- read.csv("activity.csv")
 ```
 
+
+```{r setup}
+#create subdirectory figures and put the plots here
+knitr::opts_chunk$set(fig.path="figures/")
+```
 
 ## What is mean total number of steps taken per day?
 ```{r}

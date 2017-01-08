@@ -128,6 +128,8 @@ $(document).ready(function () {
 <pre class="r"><code>setwd(&quot;C:/Users/Peesonal/Documents/Dette/Coursera/Git/RepData_PeerAssessment1&quot;)
 unzip(zipfile=&quot;activity.zip&quot;)
 data &lt;- read.csv(&quot;activity.csv&quot;)</code></pre>
+<pre class="r"><code>#create subdirectory figures and put the plots here
+knitr::opts_chunk$set(fig.path=&quot;figures/&quot;)</code></pre>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
 <h2>What is mean total number of steps taken per day?</h2>
