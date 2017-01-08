@@ -76,13 +76,14 @@ mediantotal_diff <- mediantotalImputed - mediantotal
 
 #check the total value for the date with all missing data
 totalstepsImputed[as.character(totalstepsImputed$date)=="2012-10-01",] #total steps for 10/1/2012 is 10766.19
+#the imputed value to the missing values is the same with the mean total number of steps before imputation
 ```
 
 * The mean steps taken each day before imputation is `r meantotal`.
 * The median steps taken each day before imputation is `r mediantotal`.
 * The mean steps taken each day after imputation is `r meantotalImputed`.
 * The median steps taken each day after imputation is `r mediantotalImputed`.
-* The difference in the mean steps taken each day before vs after imputation is `r meantotal_diff`. It has no impact in the mean total steps since the missing values came from dates with no observations in all interval (all missing among those dates).
+* The difference in the mean steps taken each day before vs after imputation is `r meantotal_diff`. 
 * Imputation has a little impact in the median total number of steps. The difference in the median values before and after imputation is `r mediantotal_diff`.
 
 ## Are there differences in activity patterns between weekdays and weekends?

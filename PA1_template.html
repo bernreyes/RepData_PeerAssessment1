@@ -186,12 +186,13 @@ mediantotal_diff &lt;- mediantotalImputed - mediantotal
 totalstepsImputed[as.character(totalstepsImputed$date)==&quot;2012-10-01&quot;,] #total steps for 10/1/2012 is 10766.19</code></pre>
 <pre><code>##         date    steps
 ## 1 2012-10-01 10766.19</code></pre>
+<pre class="r"><code>#the imputed value to the missing values is the same with the mean total number of steps before imputation</code></pre>
 <ul>
 <li>The mean steps taken each day before imputation is 1.076618910^{4}.</li>
 <li>The median steps taken each day before imputation is 10765.</li>
 <li>The mean steps taken each day after imputation is 1.076618910^{4}.</li>
 <li>The median steps taken each day after imputation is 1.076618910^{4}.</li>
-<li>The difference in the mean steps taken each day before vs after imputation is 0. It has no impact in the mean total steps since the missing values came from dates with no observations in all interval (all missing among those dates).</li>
+<li>The difference in the mean steps taken each day before vs after imputation is 0.</li>
 <li>Imputation has a little impact in the median total number of steps. The difference in the median values before and after imputation is 1.1886792.</li>
 </ul>
 </div>

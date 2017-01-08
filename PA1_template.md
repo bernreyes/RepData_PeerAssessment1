@@ -105,11 +105,15 @@ totalstepsImputed[as.character(totalstepsImputed$date)=="2012-10-01",] #total st
 ## 1 2012-10-01 10766.19
 ```
 
+```r
+#the imputed value to the missing values is the same with the mean total number of steps before imputation
+```
+
 * The mean steps taken each day before imputation is 1.0766189\times 10^{4}.
 * The median steps taken each day before imputation is 10765.
 * The mean steps taken each day after imputation is 1.0766189\times 10^{4}.
 * The median steps taken each day after imputation is 1.0766189\times 10^{4}.
-* The difference in the mean steps taken each day before vs after imputation is 0. It has no impact in the mean total steps since the missing values came from dates with no observations in all interval (all missing among those dates).
+* The difference in the mean steps taken each day before vs after imputation is 0. 
 * Imputation has a little impact in the median total number of steps. The difference in the median values before and after imputation is 1.1886792.
 
 ## Are there differences in activity patterns between weekdays and weekends?
