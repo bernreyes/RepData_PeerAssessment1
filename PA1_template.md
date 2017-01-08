@@ -1,4 +1,6 @@
 # Reproducible Research: Peer Assessment 1
+Bern Reyes  
+January 2017  
 
 
 ## Loading and preprocessing the data
@@ -11,6 +13,11 @@ data <- read.csv("activity.csv")
 
 
 
+```r
+#create subdirectory figures and put the plots here
+knitr::opts_chunk$set(fig.path="figures/")
+```
+
 ## What is mean total number of steps taken per day?
 
 ```r
@@ -18,7 +25,7 @@ totalsteps <- aggregate(steps ~ date, data, sum)
 hist(totalsteps$steps, main = paste("Total steps taken per day"), col="blue", xlab="Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](figures/unnamed-chunk-1-1.png)<!-- -->
 
 ```r
 meantotal <- mean(totalsteps$steps)
@@ -26,15 +33,7 @@ mediantotal <- median(totalsteps$steps)
 ```
 
 The mean steps taken each day is 1.0766189\times 10^{4}.
-
-```
-## [1] 10766.19
-```
 The median steps taken each day is 10765.
-
-```
-## [1] 10765
-```
 
 
 ## What is the average daily activity pattern?
@@ -47,17 +46,13 @@ meansteps <- aggregate(steps ~ interval, data, mean)
 plot(meansteps$interval,meansteps$steps, type="l", main="Average Number of Steps per Day by Interval", xlab="Interval", ylab="Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](figures/unnamed-chunk-2-1.png)<!-- -->
 
 ```r
 max_meanstep <- meansteps[which.max(meansteps$steps),1]
 ```
 
-The interval with most average steps is
-
-```
-## [1] 835
-```
+The interval with most average steps is 835.
 
 ## Imputing missing values
 * Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
@@ -93,7 +88,7 @@ totalstepsImputed <- aggregate(steps ~ date, imputedData, sum)
 hist(totalstepsImputed$steps, main = paste("Total steps taken per day"), col="blue", xlab="Number of Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](figures/unnamed-chunk-5-1.png)<!-- -->
 
 ```r
 meantotalImputed <- mean(totalstepsImputed$steps)
@@ -110,54 +105,6 @@ totalstepsImputed[as.character(totalstepsImputed$date)=="2012-10-01",] #total st
 ## 1 2012-10-01 10766.19
 ```
 
-```r
-meantotalImputed
-```
-
-```
-## [1] 10766.19
-```
-
-```r
-mediantotalImputed
-```
-
-```
-## [1] 10766.19
-```
-
-```r
-meantotal
-```
-
-```
-## [1] 10766.19
-```
-
-```r
-mediantotal
-```
-
-```
-## [1] 10765
-```
-
-```r
-meantotal_diff
-```
-
-```
-## [1] 0
-```
-
-```r
-mediantotal_diff
-```
-
-```
-## [1] 1.188679
-```
-
 * The mean steps taken each day before imputation is 1.0766189\times 10^{4}.
 * The median steps taken each day before imputation is 10765.
 * The mean steps taken each day after imputation is 1.0766189\times 10^{4}.
@@ -170,13 +117,11 @@ mediantotal_diff
 ```r
 weekday <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 imputedData$day = as.factor(ifelse(is.element(weekdays(as.Date(imputedData$date)),weekday), "Weekday", "Weekend"))
-
 meanstepsWithWeek <- aggregate(steps ~ interval + day, imputedData, mean)
 
 library(lattice)
-
 xyplot(meanstepsWithWeek$steps ~ meanstepsWithWeek$interval|meanstepsWithWeek$day, 
 main="Average Steps per Day by Interval",xlab="Interval", ylab="Steps",layout=c(1,2), type="l")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](figures/unnamed-chunk-6-1.png)<!-- -->
